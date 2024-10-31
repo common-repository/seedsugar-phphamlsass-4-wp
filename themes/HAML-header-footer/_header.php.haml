@@ -1,0 +1,39 @@
+!!! 5
+!!!
+%html
+	%head
+		%meta{ :charset => bloginfo( 'charset' ) }
+		%meta(name="viewport" content="width=device-width")
+		%title= wp_title( '|', true, 'right' )
+		%link(rel="profile" href="http://gmpg.org/xfn/11")
+		
+		- $pingb = get_bloginfo( 'pingback_url' )
+		%link(href=$pingb rel="pingback")
+		
+		= wp_head()
+
+		- $style_p = get_stylesheet_directory_uri() . '/css/style.sass'
+		%link(href=$style_p rel="stylesheet" type="text/css" media="all")
+		
+		
+	%body
+		#page.hfeed.site
+			%header#masthead( class="site-header" role="banner" )
+				%hgroup
+					%h1.site-title
+						%a{ :href => esc_url( home_url( '/' ) ), :title => esc_attr( get_bloginfo( 'name', 'display' ) ), :rel => "home" }
+							= bloginfo( 'name' )
+					%h2.site-description= bloginfo( 'description' )
+
+				%nav{ :id=> "site-navigation", :role => "navigation", :class => "main-navigation" }
+					%h3.menu-toggle= _e( 'Menu', 'twentytwelve' )
+					%a.assistive-text{ :href => "#content" :title => esc_attr_e( 'Skip to content', 'twentytwelve' )}= _e( 'Skip to content', 'twentytwelve' )
+					= wp_nav_menu( array( 'theme_location' => 'primary', 'menu_class' => 'nav-menu' ) )
+
+				- $header_image = get_header_image()
+				- if ( ! empty( $header_image ) )
+					%a{ :href => esc_url( home_url( '/' ) ) }
+						%img.header-image{ :src => esc_url( $header_image ), :width => get_custom_header()->width, :height => get_custom_header()->height }
+			
+		
+			#main.wrapper

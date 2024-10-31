@@ -1,0 +1,13 @@
+/*
+Theme Name:     HAML theme with header and footer partials
+Theme URI:      http://derdoc.info/
+Description:    HAML testing theme
+Author:         derDoc
+Author URI:     http://derdoc.info/
+Template:       twentytwelve
+Version:        0.1.0
+*/
+
+/* Keep this file! Very important, or else the theme won't be recognized by wordpress! */
+
+@import url("../twentytwelve/style.css");

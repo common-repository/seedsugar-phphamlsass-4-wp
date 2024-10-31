@@ -1,0 +1,13 @@
+-# sadly wordpress does'nt have a hook for changing the header template away from header.php, so we can't use get_header() here
+=render('header')
+
+#primary
+	#content(role="main")
+		
+		- if ( have_posts() )
+			- while ( have_posts() )
+				= the_post()
+				= get_template_part( 'content', get_post_format() )
+
+-#same here
+=render('footer')
